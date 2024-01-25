@@ -1,0 +1,135 @@
+version: "3.9"
+
+services:
+
+  nginx:
+    build:
+      context: frontend
+      target: proxy
+    container_name: reverse-proxy
+    networks:
+      - proxy-network
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+    depends_on:
+      keycloak:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    expose:
+      - 80
+      - 443
+
+  keycloak:
+    build: keycloak
+    container_name: keycloak-test
+    command:
+      - start --optimized --http-enabled=true --hostname-strict=false --hostname-strict-backchannel=true --hostname-strict-https=false --import-realm --hostname-debug=true
+    volumes:
+      - type: bind
+        source: ./keycloak/test-realm-with-users.json
+        target: /opt/keycloak/data/import/test-realm-with-users.json
+        read_only: true
+    ports:
+      - 127.0.0.1:8282:8080
+    networks:
+      - keycloak-database
+      - proxy-network
+    expose:
+      - 8080
+    depends_on:
+      keycloak-db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "--head", "-fsS", "http://127.0.0.1:8080/health/ready"]
+      start_period: 15s
+      interval: 30s
+      retries: 3
+      timeout: 5s
+
+  db:
+    image: postgres:14-alpine
+    container_name: db
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:5436:5432
+    networks:
+      - spring-database
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_DB: naocustom
+      POSTGRES_PASSWORD_FILE: /run/secrets/db-password
+    secrets:
+      - db-password
+    volumes:
+      - ./db/scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d naocustom", "--quiet"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    expose:
+      - 5432
+
+  backend:
+    build: api
+    container_name: spring-test
+    volumes:
+      - ./images:/app/images
+    restart: unless-stopped
+    ports:
+      - 127.0.0.1:8283:8080
+    networks:
+      - proxy-network
+      - spring-database
+    secrets:
+      - db-password
+    environment:
+      - POSTGRES_DB=naocustom
+      - POSTGRES_USER=admin
+    expose:
+      - 8080
+    depends_on:
+      db:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://127.0.0.1:8080/actuator/health || exit 1
+      interval: 15s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+  
+  keycloak-db:
+    image: postgres:14-alpine
+    container_name: postgres-test
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_DB=postgres
+    ports:
+      - 127.0.0.1:5435:5432
+    networks:
+      - keycloak-database
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  db-data:
+    external: true
+  images:
+secrets:
+  db-password:
+    file: db/password.txt
+networks:
+  proxy-network:
+  keycloak-database:
+  spring-database:
