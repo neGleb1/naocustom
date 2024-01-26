@@ -28,8 +28,10 @@ services:
       - start --optimized --http-enabled=true --hostname-strict=false --hostname-strict-backchannel=true --hostname-strict-https=false --import-realm --hostname-debug=true
     volumes:
       - type: bind
-        source: ./keycloak/test-realm-with-users.json
-        target: /opt/keycloak/data/import/test-realm-with-users.json
+        # source: ./keycloak/test-realm-with-users.json
+        # target: /opt/keycloak/data/import/test-realm-with-users.json
+        source: ./keycloak/naocustom.json
+        target: /opt/keycloak/data/import/naocustom.json
         read_only: true
     ports:
       - 127.0.0.1:8282:8080
