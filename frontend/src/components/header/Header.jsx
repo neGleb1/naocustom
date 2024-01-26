@@ -30,7 +30,9 @@ export default function Header({toggleMenu}) {
                         <SearchIcon/>
                     </li>
                     <li className="nav-icon">
-                        <ProfileIcon/>
+                        <Link to="/basket">
+                            <ProfileIcon/>
+                        </Link>
                     </li>
                     <li className="nav-icon">
                         <Link to="/basket">
@@ -39,7 +41,7 @@ export default function Header({toggleMenu}) {
                     </li>
                     <RenderOnRole roles={'ROLE_MERCHANT'}>
                         <li className="nav-icon">
-                        <Link to={`/cabinet/merchant/products`}>
+                            <Link to={`/cabinet/merchant/products`}>
                                 <MerchantIcon/>
                             </Link>
                         </li>
