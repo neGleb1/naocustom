@@ -1,0 +1,48 @@
+
+.list-item{
+    display: inline-block;
+    position: relative;
+    border-radius: 15px;
+    background-color: #ffffff85;
+    color: #3a3737;
+    cursor: pointer; 
+}
+
+.list-item:hover{
+    box-shadow: 0 5px 25px rgba(255, 255, 255, 0.596);
+    background-color: #ffffff;
+}
+
+.delete:hover {
+    box-shadow: 0 15px 25px rgba(255, 0, 0, 0.596);
+    background-color: #ffffff;
+}
+
+.update:hover {
+    box-shadow: 0 15px 25px rgba(0, 151, 221, 0.596);
+    background-color: #ffffff;
+}
+
+.list-item-name {
+    font-size: 1.5rem;
+    padding: 15px;
+    margin: 10px 0 0 0;
+    line-height: 1.5rem;
+}
+
+.list-item-price{
+    font-size: 2rem;
+    padding: 15px;
+    margin: 10px 0;
+    font-weight: 300;
+}
+
+.list-item-thumbnail{
+    border-radius: 15px;
+}
+
+.list-item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}

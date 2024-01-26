@@ -1,0 +1,123 @@
+.menu {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: auto;
+    max-width: 1223px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -105%;
+    z-index: 100;
+    transition: left .3s ease 0s;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    color: #ffffff7e;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.menu-close-button {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    position: relative;
+    font-size: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    line-height: 1;
+    position: absolute;
+    top: 9px;
+    left: calc(300px + 9px);
+  }
+
+.menu-container {
+    overflow-y: auto;
+    scrollbar-color: #d3d4dd transparent;
+    scrollbar-width: thin;
+    width: 300px;
+    height: 100%;
+    flex-shrink: 0;
+    background: #000000;
+    padding: 20px 0 20px 30px;
+    padding-right: 0px;
+}
+
+.menu-active {
+    left: 0;
+}
+
+.menu-tabs{
+    box-sizing: border-box;
+    display: inline-block;
+    height: 50px;
+    margin: 0;
+    vertical-align: top;
+    width: 100%;
+}
+
+.men-tab{
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    background-color: #ffffff7e;
+    border-style: none;
+    color: #000000;
+    cursor: pointer;
+    font-weight: 900;
+    height: 49px;
+    letter-spacing: 2px;
+    line-height: 50px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.men-tab:hover {
+    background-color: #ffffff;
+}
+
+.men-tab:focus {
+    background-color: #ffffff;
+}
+
+.women-tab:focus {
+    background-color: #ffffff;
+}
+
+.women-tab:hover {
+    background-color: #ffffff;
+}
+
+.women-tab{
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    background-color: #ffffff7e;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    font-weight: 900;
+    height: 49px;
+    letter-spacing: 2px;
+    line-height: 50px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu .disabled {
+    display: none;
+}

@@ -123,8 +123,8 @@ services:
       start_period: 5s
 
 volumes:
-  db-data:
-    external: true
+  # db-data:
+  #   external: true
   images:
 secrets:
   db-password:

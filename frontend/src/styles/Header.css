@@ -1,0 +1,152 @@
+header {
+    background-color: #000000;
+    color: #ffffff;
+    position: fixed;
+    width: 100%;
+    flex: 0 0 auto;
+    padding: 16px 0 16px;
+    z-index: 10;
+}
+
+header svg {
+    width: 40px;
+    cursor: pointer;
+}
+
+header svg path{
+    fill: #ffffffa4;
+}
+
+header svg:hover path{
+    fill: #ffffff;
+}
+
+.header-container{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1504px;
+    padding: 0 10px;
+    margin: 0 auto;
+    height: 60px;
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.header-logo{
+    cursor: pointer;
+}
+
+header li.search-icon{
+    display: relative;
+}
+
+@media (min-width: 768px) {
+    header li.search-icon{
+        display: none;
+    }
+}
+
+.nav-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.nav-icon{
+    display: inline;
+    list-style: none;
+    padding: 0;
+    margin-left: 9px;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    padding-right: 1rem;
+}
+
+header a:hover {
+    color: #f08040;
+}
+
+.burger-button{
+    background-color: #000000;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .burger-button svg{
+        width: 70px;
+    }
+}
+
+.logo-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 100px;
+}
+
+@media (min-width: 1024px) {
+    .logo-container {
+        min-width: 180px;
+    }
+}
+
+.logo-container a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.search-form{
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-flow: row;
+    margin: 0 10px 0 20px;
+}
+
+@media (max-width: 768px) {
+    .search-form{
+        display: none;
+    }
+}
+
+.search-form input{
+    display: flex;
+    flex-grow: 1;
+    border: none;
+    font-size: 18px;
+    line-height: 24px;
+    transition: background .3s ease 0s;
+    color: rgba(255,255,255,.5);
+    width: 100%;
+    padding-left: 30px;
+    border-top-left-radius: 56px;
+    border-bottom-left-radius: 56px;
+    background: rgba(255,255,255,.2);
+    cursor: pointer;
+}
+
+.search-form input:hover {
+    background: rgba(255,255,255,.5);
+}
+
+.search-form button{
+    border: none;
+    border-top-right-radius: 56px;
+    border-bottom-right-radius: 56px;
+    background: rgba(255,255,255,.2);
+}
+
+.search-form svg{
+    width: 40px;
+}

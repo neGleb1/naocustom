@@ -170,7 +170,7 @@ public class ProductService {
             String path1 = imageService.store(image1);
             Image updatedImage1 = new Image();
             updatedImage1.setProductId(product.getProductId());
-            updatedImage1.setIsThumbnail(true);
+            updatedImage1.setIsThumbnail(false);
             updatedImage1.setPath(path1);
             updatedImage1.setTimestamp(ZonedDateTime.now().toString());
             imageDao.save(updatedImage1);
@@ -183,7 +183,7 @@ public class ProductService {
             String path2 = imageService.store(image2);
             Image updatedImage2 = new Image();
             updatedImage2.setProductId(product.getProductId());
-            updatedImage2.setIsThumbnail(true);
+            updatedImage2.setIsThumbnail(false);
             updatedImage2.setPath(path2);
             updatedImage2.setTimestamp(ZonedDateTime.now().toString());
             imageDao.save(updatedImage2);
@@ -196,7 +196,7 @@ public class ProductService {
             String path3 = imageService.store(image3);
             Image updatedImage3 = new Image();
             updatedImage3.setProductId(product.getProductId());
-            updatedImage3.setIsThumbnail(true);
+            updatedImage3.setIsThumbnail(false);
             updatedImage3.setPath(path3);
             updatedImage3.setTimestamp(ZonedDateTime.now().toString());
             imageDao.save(updatedImage3);

@@ -1,0 +1,161 @@
+.new-product{
+    display: flex;
+    flex-direction: column;
+    font-size: 28px;
+}
+
+.new-product h1{
+    width: 100%;
+    text-align: center;
+}
+
+.new-product ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.new-product img{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.new-product button{
+    width: 150px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    font-size: 20px;
+    background-color: rgb(0, 56, 129);
+    transition: background .3s ease 0s;
+    float: right;
+}
+
+.new-product button:hover{
+    background-color: rgb(0, 204, 255);
+}
+
+.new-product select{
+    border: none;
+    border-radius: 15px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.253);
+    cursor: pointer;
+}
+
+.new-product select:hover{
+    background-color: black;
+    box-shadow: 0 1px 5px rgba(255, 255, 255, 0.596);
+}
+
+.new-product input{
+    border: none;
+    border-radius: 12px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.253);
+    transition: background .3s ease 0s;
+}
+
+.new-product input:hover{
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 1px 5px rgba(255, 255, 255, 0.596);
+}
+
+.new-product label{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.new-product form{
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+}
+
+.new-product-section-container{
+    display: flex;
+    align-items: start;
+    flex-flow: row wrap;
+}
+
+.new-product form .required-attributes-section{
+    min-width: 400px;
+    display: flex;
+    flex-grow: 1;
+    flex-flow: column nowrap;
+    padding: 20px;
+    margin: 10px;
+}
+
+.new-product form .optional-attributes-section{
+    min-width: 400px;
+    display: flex;
+    flex-grow: 1;
+    align-self: stretch;
+    flex-flow: column nowrap;
+    padding: 20px;
+    margin: 10px;
+}
+
+.new-product .sex-input-section{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0px;
+}
+
+.sex-input-section input{
+    width: 28px;
+    height: 24px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.37);
+}
+
+.sex-input-section label{
+    cursor: pointer;
+}
+
+.sex-input-section p{
+    padding: 0px;
+    margin: 0px;
+}
+
+.new-product-form-submit{
+    width: 100%;
+}
+
+.images-container{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.image-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-items: center;
+}
+
+#color-input{
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    border-radius: 0px;
+}
+
+#photo-input{
+    background-color: transparent;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+#photo-input:hover{
+    background-color: transparent;
+    box-shadow: none;
+}
