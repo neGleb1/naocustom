@@ -4,7 +4,7 @@ Online shop with Nginx reverse proxy and Oauth2
 ## Run
 
 ### Windows
-1. Install Docker Desktop: https://docs.docker.com/desktop/install/windows-install/
+1. Install Docker Desktop: https://docs.docker.com/desktop/install/windows-install/ . Check [wsl 2](https://learn.microsoft.com/en-us/windows/wsl/install) is installed and virtualization is enabled in BIOS. Docker does not work without wsl installed correctly! If you have problems with docker on windows, I recommend to run docker engine in linux virtual machine.
 
 2. Clone this repository and open folder in command prompt
 
